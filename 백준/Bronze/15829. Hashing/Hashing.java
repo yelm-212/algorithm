@@ -6,7 +6,9 @@ import java.util.StringTokenizer;
 public class Main {
     static int L;
     static String str;
-    static long res;
+    static long sum;
+    static long pow;
+    static int M = 1234567891;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -15,12 +17,15 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         str = st.nextToken();
 
-        for (int i = 0 ; i < str.length() ; i++ ){
-            int a = str.charAt(i) - 96;
-            res += a * Math.pow(31, i);
+        sum = 0;
+        pow = 1;
+
+        for(int i = 0; i < L; i++)
+        {
+            sum += (str.charAt(i) - 'a' + 1) * pow % M; 
+            pow = pow * 31 % M; 
         }
 
-
-        System.out.print(res % 1234567891);
+        System.out.print(sum % M);
     }
 }
