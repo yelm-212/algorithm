@@ -12,7 +12,7 @@ public class Solution {
             }
         }
         
-        // List<Integer>를 int[]로 변환
+        // Stack<Integer>를 int[]로 변환
         int[] result = s.stream().mapToInt(i -> i).toArray();
 
         return result;
