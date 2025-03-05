@@ -22,32 +22,33 @@ public class Main {
         // 전체 map에 대해 DFS 수행
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                dfs(i, j, String.valueOf(map[i][j]));
+                dfs(i, j, new StringBuilder().append(map[i][j]));
             }
         }
 
         System.out.println(ans.size());
     }
 
-    private static void dfs(int i, int j, String str) {
-        // 종료 조건
-        if (str.length() == 6) {
-            ans.add(str);
+    private static void dfs(int i, int j, StringBuilder sb) {
+        // 종료 조건: 길이가 6이면 set에 추가 후 종료
+        if (sb.length() == 6) {
+            ans.add(sb.toString());
             return;
         }
 
-        // 4개의 방향에 대해 검사
+        // 4방향 탐색
         for (int k = 0; k < 4; k++) {
             int n = i + dx[k];
             int m = j + dy[k];
 
-            // 이동이 불가능하면 건너뛴다.
             if (checkMap(n, m)) continue;
 
-            // 재귀 호출 DFS
-            dfs(n, m, str + map[n][m]);
+            // 현재 숫자 추가
+            sb.append(map[n][m]);
+            dfs(n, m, sb);
+            // 탐색 후 마지막 문자 제거
+            sb.deleteCharAt(sb.length() - 1);
         }
-
     }
 
     private static boolean checkMap(int n, int m) {
