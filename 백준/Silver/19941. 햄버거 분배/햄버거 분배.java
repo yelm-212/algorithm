@@ -12,7 +12,6 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        arr = new char[N];
 
         // 배열 입력받기
         arr = br.readLine().toCharArray();
@@ -20,12 +19,12 @@ public class Main {
         solve();
 
         System.out.println(cnt);
-
+        br.close();
     }
 
     private static void solve() {
         for (int i = 0; i < N; i++) {
-            // 사람 위치가 아닌 경우 early return
+            // 사람 위치가 아닌 경우
             if (arr[i] != 'P') {
                 continue;
             }
