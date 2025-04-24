@@ -143,16 +143,16 @@ public class Main {
 
         switch (command) {
             case 'U': // 행 감소
-                nextA[1]--; nextB[1]--; nextC[1]--;
-                break;
-            case 'D': // 행 증가
-                nextA[1]++; nextB[1]++; nextC[1]++;
-                break;
-            case 'L': // 열 감소
                 nextA[0]--; nextB[0]--; nextC[0]--;
                 break;
-            case 'R': // 열 증가
+            case 'D': // 행 증가
                 nextA[0]++; nextB[0]++; nextC[0]++;
+                break;
+            case 'L': // 열 감소
+                nextA[1]--; nextB[1]--; nextC[1]--;
+                break;
+            case 'R': // 열 증가
+                nextA[1]++; nextB[1]++; nextC[1]++;
                 break;
             case 'T': // 회전 로직 (기존 로직 유지)
                 // 회전 가능 여부 먼저 확인 (현재 중심점 기준)
